@@ -1,8 +1,10 @@
 pipeline {
    agent any
 
-   triggers { cron('H 4/* 0 0 1-5') }
-
+   triggers {
+    cron '''TZ=Etc/UTC
+H/5 * * * *'''
+  }
    stages {
       stage('Hello') {
          steps {
